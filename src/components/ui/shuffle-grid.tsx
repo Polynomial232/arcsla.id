@@ -1,88 +1,85 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export const ShuffleHero = ({ images }: { images?: any[] }) => {
-    return (
-        <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
-            <div>
-                <span className="block mb-4 text-xs md:text-sm text-accent-purple font-bold uppercase tracking-widest">
-                    Sovereignty in every pixel
-                </span>
-                <h3 className="text-4xl md:text-6xl font-sans font-black text-deep-purple uppercase tracking-tighter mb-6">
-                    Behold the New <br />Digital Empire
-                </h3>
-                <p className="text-base md:text-lg text-muted-foreground my-4 md:my-6 italic">
-                    Forge your legacy within the monumental walls of ARCSLA. We provide the steel of technology and the fire of creativity to conquer any digital realm.
-                </p>
-            </div>
-            <ShuffleGrid images={images} />
-        </section>
-    );
+  return (
+    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+      <div>
+        <span className="block mb-4 text-xs md:text-sm text-accent-purple font-bold uppercase tracking-widest">
+          Sovereignty in every pixel
+        </span>
+        <h3 className="text-4xl md:text-6xl font-sans font-black text-deep-purple uppercase tracking-tighter mb-6">
+          Behold the New <br />
+          Digital Empire
+        </h3>
+        <p className="text-base md:text-lg text-muted-foreground my-4 md:my-6 italic">
+          Forge your legacy within the monumental walls of ARCSLA. We provide the steel of
+          technology and the fire of creativity to conquer any digital realm.
+        </p>
+      </div>
+      <ShuffleGrid images={images} />
+    </section>
+  );
 };
 
 const shuffle = (array: any[]) => {
-    let currentIndex = array.length,
-        randomIndex;
+  let currentIndex = array.length,
+    randomIndex;
 
-    while (currentIndex != 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
 
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex],
-            array[currentIndex],
-        ];
-    }
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
 
-    return array;
+  return array;
 };
 
 const generateSquares = (images?: any[]) => {
-    if (!images || images.length === 0) return [];
-    return shuffle([...images]).map((sq) => (
-        <motion.div
-            key={sq.id}
-            layout
-            transition={{ duration: 1.5, type: "spring" }}
-            className="w-full h-full rounded-md overflow-hidden bg-muted"
-            style={{
-                backgroundImage: `url(${sq.url})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-            }}
-        ></motion.div>
-    ));
+  if (!images || images.length === 0) return [];
+  return shuffle([...images]).map((sq) => (
+    <motion.div
+      key={sq.id}
+      layout
+      transition={{ duration: 1.5, type: "spring" }}
+      className="w-full h-full rounded-md overflow-hidden bg-muted"
+      style={{
+        backgroundImage: `url(${sq.url})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    ></motion.div>
+  ));
 };
 
 const ShuffleGrid = ({ images }: { images?: any[] }) => {
-    const timeoutRef = useRef<number | null>(null);
-    const [squares, setSquares] = useState(generateSquares(images));
+  const timeoutRef = useRef<number | null>(null);
+  const [squares, setSquares] = useState(generateSquares(images));
 
-    useEffect(() => {
-        setSquares(generateSquares(images));
-    }, [images]);
+  useEffect(() => {
+    setSquares(generateSquares(images));
+  }, [images]);
 
-    useEffect(() => {
-        shuffleSquares();
+  useEffect(() => {
+    shuffleSquares();
 
-        return () => {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-        };
-    }, [images]);
-
-    const shuffleSquares = () => {
-        setSquares(generateSquares(images));
-
-        timeoutRef.current = window.setTimeout(shuffleSquares, 3000);
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
+  }, [images]);
 
-    return (
-        <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
-            {squares.map((sq) => sq)}
-        </div>
-    );
+  const shuffleSquares = () => {
+    setSquares(generateSquares(images));
+
+    timeoutRef.current = window.setTimeout(shuffleSquares, 3000);
+  };
+
+  return (
+    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">{squares.map((sq) => sq)}</div>
+  );
 };

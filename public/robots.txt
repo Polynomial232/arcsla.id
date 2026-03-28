@@ -1,0 +1,14 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow internal/private paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://arcsla.net/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1

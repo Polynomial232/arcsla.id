@@ -25,3 +25,7 @@ dist-ssr
 
 .env
 .agents
+.vercel
+.env*.local
+
+.agent

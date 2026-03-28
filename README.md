@@ -1,73 +1,111 @@
-# React + TypeScript + Vite
+# 👑 Arcsla Kingdom
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Digital Sovereignty in the Pursuit of Creative Excellence.**
 
-Currently, two official plugins are available:
+Welcome to the central command hub of the **Arcsla Kingdom**—a digital fortress built to manage the royal lineages, visual archives, and symphonies of our sovereign contributors. This platform serves as the official portal for the Arcsla community, bridging the gap between creators and their loyal subjects.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🏛️ The Royal Mandates (Features)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Sovereign Talent Showcase**: A regal directory of the monarchs and divine icons within our digital empire.
+- **Archives of the Kingdom**: A curated visual legacy of legendary chronicles and fanart forged by loyal subjects.
+- **Royal Theatre**: Seamless integration with our visual chronicles delivered via YouTube.
+- **Royal Proclamation**: Stay informed on the latest grand gatherings and digital gatherings within the empire.
+- **Symphony of the Sovereigns**: Explore sonic frequencies and harmonies forged in our royal chambers (Spotify integration).
+- **Digital Fortress**: Advanced responsive design built for the modern digital era.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technical Decree (Tech Stack)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Core
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite 8](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Routing**: [React Router 7](https://reactrouter.com/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Styling & Animation
+
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+
+### Infrastructure
+
+- **Backend & Database**: [Supabase](https://supabase.com/)
+- **Deployment**: [Vercel](https://vercel.com/)
+- **Formatting**: [Prettier](https://prettier.io/)
+- **Linting**: [ESLint](https://eslint.org/)
+- **Git Hooks**: [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/okonet/lint-staged)
+
+---
+
+## ⚔️ Developer Chronicles (Setup)
+
+To begin your quest in the local development environment:
+
+### 1. Prerequisites
+
+- Node.js (Latest LTS)
+- Yarn or npm
+
+### 2. Initialization
+
+```bash
+# Clone the scrolls
+git clone https://github.com/your-repo/arcsla-net.git
+
+# Enter the chamber
+cd arcsla-net
+
+# Install the royal mandates (dependencies)
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Environment Secrets
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env.local` file in the root with your Supabase credentials:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_key
 ```
+
+### 4. Manifest the Empire
+
+```bash
+# Start the development server
+yarn dev
+
+# Format all scrolls before presentation
+yarn format
+
+# Check for architectural flaws
+yarn lint
+```
+
+---
+
+## 🚀 Deployment to the Realm
+
+This kingdom is optimized for deployment on **Vercel**.
+
+1. Connect your repository to Vercel.
+2. The `vercel.json` ensures that all royal paths are correctly routed to the central hub (`index.html`) for our SPA architecture.
+3. Configure environment variables in the Vercel dashboard.
+
+---
+
+## 📜 Royal Protocol (Maintenance)
+
+- **Formatting**: Pre-commit hooks via Husky ensure that all code satisfies the Prettier royal standard before being committed.
+- **Data**: All royal information is managed through Supabase tables (`talents`, `navigation`, `gallery`, `events`, etc.).
+
+---
+
+<div align="center">
+  <p><i>"In Digital Sovereignty We Trust"</i></p>
+  <p>© 2026 PT ARCSLA CAKRAWALA INDONESIA. All rights reserved by the Crown.</p>
+</div>
