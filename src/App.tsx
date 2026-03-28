@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const Home = lazy(() => import("./pages/Home"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -15,6 +16,7 @@ function App() {
           <Route path="/talent/:id" element={<TalentDetail />} />
         </Routes>
       </Suspense>
+      <SpeedInsights />
     </Router>
   );
 }
